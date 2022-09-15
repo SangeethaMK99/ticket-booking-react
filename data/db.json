@@ -1,0 +1,72 @@
+{
+    "headers":[
+        {
+            "name":"Home",
+            "path":"/"
+        },
+        {
+            "name":"About",
+            "path":"/about"
+        },
+        {
+            "name":"Contact",
+            "path":"/contact"
+            
+        },
+        {
+            "name":"Benefits",
+            "path":"/benefits"
+            
+        }
+        
+    ],
+    "images":[
+  "https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072821__480.jpg",
+  "https://i.redd.it/q2x3kg6x8co61.jpg",
+  "https://w0.peakpx.com/wallpaper/42/582/HD-wallpaper-flowers-black-flores-forest-landscapes-nature-road.jpg"        
+],
+
+    "about":[
+        {
+            "heading":"The Best Way to Book Bus Ticket",
+            "paragraph":"Do you want to know the best way to book tickets online securely and how to book tickets in advance?Travelly.com is the best online platform for bus ticket booking . You can find an affordable and cost-effective online travel bookings facility at travelly . With Travelly , online bus ticket booking is now very easy. You simply need to fill in the details of your journey when  our book tickets button clicked, select the bus that best suits your travel needs and securely complete your booking online on Travelly.com.We would recommend that you book your tickets at least 2 - 3 days in advance so that you can reserve bus seats as per your preference and get the best-discounted price on your booking."
+        },
+        {
+            "heading":"Online Bus Ticket Booking at Lowest Price",
+            "paragraph":"With Travelly , travellers can book bus tickets online at the lowest ticket fares. Travellers prefer to choose their favorite bus to reserve online bus booking. You are at the right place to find a wide range of Private buses and SRTC (State Road Transport Corporation) buses are available for bus booking online on Travelly ."
+        }
+    ],
+    "contact":[
+        {
+            "heading":"contact us at:",
+            "paragraph":"Travelly"
+        },
+        {
+            "paragraph":"Calicut,Kunnamangalam,673571"
+        },
+        {
+            "paragraph":"email id:travelly001@gmail.com"
+        },
+        {
+            "paragraph":"Mob no:8790546372"
+        }
+    ],
+    "benefits":[
+        {
+            "heading":"Here's listing all the benefits of booking bus tickets online on Travelly",
+            "list":"Avoid standing in long queues at offline bus ticket counters."
+        },
+        {
+            "list":"Avoid standing in long queues at offline bus ticket counters."
+        },
+        {
+            "list":"24/7 customer support."
+        },
+        {
+            "list":"Each and every transaction is simple, safe and secure."
+        },
+        {
+            "list":"No more hassle of approaching travel agents."
+        }    
+    ]
+}

@@ -1,0 +1,21 @@
+.nav-items {
+    display:flex;
+    font-size:20px;
+    padding: 10px 0;
+}
+.nav-items ul li {
+    list-style:none;
+    display:inline-block;
+    padding:0 58px;
+}
+.nav-items ul li a{
+    text-decoration:none;
+    color: black;
+}
+.btn-header button{
+    font-size: 20px;
+}
+.btn-header{
+    padding: 10px 20px;
+    font-size:16px;
+}

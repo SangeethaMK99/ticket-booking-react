@@ -1,0 +1,11 @@
+.footer{
+    background-color: rgb(238, 170, 125);
+    color:rgb(153, 134, 108);
+    display: flex;
+    justify-content: center;
+    font-size:14px;
+    margin-bottom: 0px;
+}
+.footer-icon ul li{
+    display: inline-block;
+}

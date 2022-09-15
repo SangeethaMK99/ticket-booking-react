@@ -1,0 +1,9 @@
+.signup{
+    text-align: center;
+    padding-top:60px;
+}
+.signup button{
+    padding: 10px 70px;
+    background-color: rgb(19, 168, 44);
+    border: none;
+}
