@@ -10,29 +10,35 @@ interface slider{
 function Images({images, fetchSlider}:slider) {
   useEffect(() => {
     fetchSlider();
+   
   },[]);
+  const im ="http://localhost:8000/upload/images/"
+  const imgs=images.img?.map((ele:any)=>im + ele.name)
+  console.log(imgs);
   
+
   const [index, setIndex] = useState(0);
   const prevImages = () => {
     if (index !== 0){
       setIndex(index -1);
     } else if (index == 0){
-      setIndex(images.imgs.length -1);
+      setIndex(imgs.length -1);
     }
   };
   const nextImages = () => {
-    if (index !== images.imgs.length - 1) {
+    if (index !== imgs.length - 1) {
       setIndex(index +1);
-    }else if (index === images.imgs.length - 1) {
+    }else if (index === imgs.length - 1) {
       setIndex(0);
     }
-  };
+  };    console.log(images.img);
+
   return (
     <div className="imageSlider">
       {/* <img src="http://localhost:8000/upload/images/img_1.jpg" alt="err" /> */}
       {/* <img src={images[index]} alt="error" /> */}
       {/* console.log(images); */}
-      {images.imgs && <img src={images.imgs[index]} alt="err"/>}
+      {images.img && <img src={imgs[index]} alt="err"/>}
       <button onClick={prevImages}>Prev</button>
       <button onClick={nextImages}>Next</button>
       <br/>
@@ -43,6 +49,7 @@ function Images({images, fetchSlider}:slider) {
 const mapStateToProps = (state:any) => {
   return {
     images: state.images.slider,
+    
   };
 };
 const mapDispatchToProps = (dispatch:any) => {

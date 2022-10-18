@@ -30,8 +30,8 @@ function Header({headerData,fetchHeader,signout}:header){
                     <li onClick={() => history.push(post.path)}>{post.name}</li>
                      ))}
                      <button className="btn-header" onClick={handleClick}>SignOut</button>
-                    <li><FaSearch/></li>
-                    <li><FaUserAlt/></li>
+                    {/* <li><FaSearch/></li> */}
+                    {/* <li><FaUserAlt/></li> */}
                 </ul> 
             </div>
             </nav>  

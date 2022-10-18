@@ -15,7 +15,7 @@ function Benefits({benefitsData,fetchBenefits}:benefitsProps) {
     },[])
     return(
         <div>
-            <Header/>
+            {/* <Header/> */}
             <div className="benefits">
                 {benefitsData.map((post:any)=>{
                     return(    
@@ -28,7 +28,7 @@ function Benefits({benefitsData,fetchBenefits}:benefitsProps) {
                     )}
                 )}    
             </div>
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     );  
 }

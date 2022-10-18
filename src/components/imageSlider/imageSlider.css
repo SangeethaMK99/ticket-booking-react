@@ -4,8 +4,9 @@
     height:500px;
 }
 .imageSlider{
-    width:900px;
-    padding-left:200px;
+    /* width:900px; */
+    /* padding-left:200px; */
+    padding:0 90px;
 }
 .imageSlider button{
     font-size:14px;

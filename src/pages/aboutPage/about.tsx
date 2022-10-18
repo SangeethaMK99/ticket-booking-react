@@ -19,7 +19,7 @@ function About({aboutData,fetchAbout}:aboutProps) {
       },[])
     return(
         <div>
-            <Header/>
+            {/* <Header/> */}
             <div className="about">
                 {aboutData.map((post:any)=>{
                     return( 
@@ -30,7 +30,7 @@ function About({aboutData,fetchAbout}:aboutProps) {
                     )}
                 )}   
             </div>
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     );   
 }

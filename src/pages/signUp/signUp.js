@@ -1,6 +1,10 @@
 import './signUp.css'
 import { useState} from 'react';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchSignup } from '../../Redux/signUp/signUpAction';
+import 'react-toastify/dist/ReactToastify.css';
+import {  toast, ToastContainer } from 'react-toastify';
+import { useHistory } from 'react-router-dom';
 
 
 const SignUp = (props) => {
@@ -8,21 +12,24 @@ const SignUp = (props) => {
     const[userName,setUserName]=useState("");
     const[password,setPassword]=useState("");
     const[email,setEmail]=useState("");
-
+    const dispatch=useDispatch()
+    const signup = useSelector(state => state.signup.signup)
+    const signupData=signup?.map((ele)=>ele.email)
+    console.log("signupdataaaa",signupData);
+    const signupEmail=signupData[0]
+    console.log("signupemaildata",signupEmail);
+    console.log("emailfrontend",email);
 
     const reg =(e) => {
         e.preventDefault()
-        axios.post("http://localhost:8000/user/signup",{username:userName,
-        email:email,
-        password:password
-    }).then((res)=>
-        {
-         console.log(res);   
-    }).catch( err=>{
-        console.log(err);
-})
-}   
+        if(signupEmail==email){
+            toast.error("email address already registered !",{position: toast.POSITION.TOP_RIGHT,autoClose: 2000,})
+          }
+          
+        dispatch(fetchSignup(userName,email,password))
+    }   
     return (
+        <div>
         <div className='signup'>
             <h1>PLEASE SIGN UP</h1>
         <form >
@@ -46,6 +53,9 @@ const SignUp = (props) => {
             </label><br/><br/>
             <button className='btn' onClick={(e)=>reg(e)}>Sign Up</button>
             </form>
+
+        </div>
+        <ToastContainer/>
         </div>
     );
 }

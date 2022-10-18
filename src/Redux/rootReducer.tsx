@@ -6,6 +6,10 @@ import contactReducer from "./Contact/contactReducer";
 import headerReducer from "./Header/headerReducer";
 import sliderReducer from "./imageSlider/sliderReducer";
 import cardReducer from "./placeCard/cardReducer";
+import bookingReducer from "./booking/bookingReducer";
+import busReducer from "./searchBus/searchBusReducer";
+import SignupReducer from "./signUp/signUpReducer";
+import ticketReducer from "./tickets/ticketReducer";
 
 const rootReducer= combineReducers({
     about:aboutReducer,
@@ -15,5 +19,9 @@ const rootReducer= combineReducers({
     card:cardReducer,
     images:sliderReducer,
     auth:authReducer,
+    booking:bookingReducer,
+    bus:busReducer,
+    signup:SignupReducer,
+    ticket:ticketReducer
 })
 export default rootReducer

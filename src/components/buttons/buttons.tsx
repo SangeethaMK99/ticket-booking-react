@@ -1,3 +1,5 @@
+import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 import "./buttons.css"
 interface buttonProps{
@@ -8,9 +10,10 @@ function Buttons(props:buttonProps){
     return(
         <div>
             <div className="btn">
-            <button id="btn1" onClick={()=>props.setButtons('form')} >BOOK TICKETS</button>
-            <button id="btn2" onClick={()=>props.setButtons('viewTickets')}>VIEW TICKETS</button>
-            <button id="btn3" onClick={()=>props.setButtons('services')}>OUR SERVICES</button>
+            <Button id="btn1" variant='contained' color='secondary' onClick={()=>props.setButtons('form')} >BOOK TICKETS</Button>
+            {/* <Button id="btn2" variant='contained' color='secondary'  onClick={()=>props.setButtons('viewTickets')}>VIEW TICKETS</Button> */}
+            <Button id="btn2" variant='contained' color='secondary' ><Link to="/view" style={{textDecoration:"none", color:"white"}}>VIEW TICKETS</Link></Button>
+            <Button id="btn3" variant='contained' color='secondary' onClick={()=>props.setButtons('services')}>OUR SERVICES</Button>
             </div>
         </div>
     )

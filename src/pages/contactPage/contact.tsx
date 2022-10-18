@@ -15,7 +15,7 @@ interface contactProps{
     },[])
     return(
         <div>
-            <Header/>
+            {/* <Header/> */}
             <div className="contact">
                 {contactData.map((post:any)=>{
                     return( 
@@ -26,7 +26,7 @@ interface contactProps{
                     )}
                 )}
             </div>
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     );   
 }

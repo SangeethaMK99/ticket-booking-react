@@ -34,16 +34,6 @@ axios.interceptors.request.use(
             }
         })
     }
-   
-    
-
-
-
-
-
-
-
-
     
   }
 

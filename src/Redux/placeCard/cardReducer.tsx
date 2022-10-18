@@ -12,7 +12,7 @@ interface cardState{
     error:string
  }
 interface cardAction{
-    type:"FETCH_CARD_REQUEST" |"FETCH_CARD_SUCCESS" |"FETCH_CARD_FAILURE" | "SIGNOUT"
+    type:"FETCH_CARD_REQUEST" | "FETCH_CARD_SUCCESS" |"FETCH_CARD_FAILURE" | "SIGNOUT"
     payload:[]
 }
  const cardReducer = (state:cardState = initialState, action:cardAction) => {  
