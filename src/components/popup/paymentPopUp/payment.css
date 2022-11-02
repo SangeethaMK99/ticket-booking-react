@@ -1,0 +1,10 @@
+.row{
+    display: flex;
+}
+.valid{
+    padding-right: 10px;
+}
+.payment{
+    text-align: center;
+    background-color: rgb(182, 184, 179);
+}

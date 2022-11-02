@@ -3,7 +3,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import axios from 'axios';
 import { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { fetchBus } from '../../Redux/searchBus/searchBusAction';
 import "./form.css"
 import DatePicker from "react-datepicker";
@@ -52,12 +52,16 @@ function FormSubmit() {
   const[date,setDate]=useState("");
   const classes = useStyles();
   const theme = useTheme();
-
+const history=useHistory()
   const[starting_point,setStartingPoint]=useState("");
   const[destination,setDestination]=useState("");
   const[searchBus,setSearchBus]=useState("")
   const[show,setShow]=useState(false);
   const dispatch=useDispatch()
+  const available=searchBus && searchBus.map((ele)=> ele.available_seats)
+console.log(available);
+const availableSeat=available[0]
+
   const handleSubmit=(e) => {
     e.preventDefault();
     if(starting_point===destination){
@@ -68,6 +72,7 @@ function FormSubmit() {
   const handleClick=() => {
     if(availableSeat == 0){
       toast.error("Booking closed!", {position: toast.POSITION.TOP_RIGHT,autoClose: 2000,})
+      history.push('/')
     }
 
   }
@@ -77,9 +82,6 @@ console.log("startingpoint"+starting_point);
 console.log("date"+date);
 const dateData=searchBus && searchBus.map((ele)=> ele.date)
 console.log(dateData[0]);
-const available=searchBus && searchBus.map((ele)=> ele.available_seats)
-console.log(available);
-const availableSeat=available[0]
 
 
 const newdata=new Date(dateData[0])
@@ -125,7 +127,8 @@ console.log("starttt",starting_point);
         </FormControl><br/>
 
         <label>
-          Date: <DatePicker dateFormat="yyyy-MM-dd" selected={date} onChange={(date) => setDate(date)} />
+          Date: <DatePicker dateFormat="yyyy-MM-dd" minDate={new Date()}
+         selected={date} onChange={(date) => setDate(date)} />
           
         </label>
         <Button  className={classes.btn} type="submit" variant='contained' color='secondary' style={{marginLeft:'30'}} onClick={(e)=>handleSubmit(e)}>search Buses</Button><br/>
@@ -139,13 +142,15 @@ console.log("starttt",starting_point);
                               <ThemeProvider theme={themes}>
                               <Typography variant="h6">
                               <h2><DirectionsBusIcon/> Bus Name : {post.name}</h2>
+                              <p>Bus category : {post.category}</p>
                               <p>Starting Point : {post.starting_point}</p>
                               <p>Destination : {post.destination}</p>
                               <p>Dropping points : {post.stop_points}</p>
                               <p>Total Bus seats : {post.total_seats}</p>
                               <p>Available Bus seats : {post.available_seats}</p>
                               <p>Bus Scheduled Date :{formatDate}</p>
-                              <Button className='btn' variant='contained' color='white' onClick={handleClick}><Link  to={{pathname:"/booking", state:{stopData:stopData},bus:{searchBus:searchBus},date:{formatDate:formatDate}}} style={{textDecoration:"none", color:"black"}}>Book</Link></Button><br/><br/>
+                              <Button className='btn' variant='contained' color='white' onClick={handleClick}><Link  to={{pathname:"/booking", state:{stopData:stopData},bus:{searchBus:searchBus},date:{formatDate:formatDate},post:{post:post}}} style={{textDecoration:"none", color:"black"}}>Book</Link></Button><br/><br/>
+                              {/* <Button className='btn' variant='contained' color='white' onClick={handleClick}><Link  to={{pathname:"/booking", post:{post:post}}} style={{textDecoration:"none", color:"black"}}>Book</Link></Button><br/><br/> */}
                               </Typography>
                               </ThemeProvider>
                             </Box>

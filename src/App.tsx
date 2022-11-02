@@ -15,6 +15,9 @@ import Tickets from "./pages/Tickets/ticket";
 import ViewTickets from "./pages/viewTickets/viewTickets";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
+import Cancel from "./pages/cancellation/cancel";
+import PassengerCancel from "./pages/passengerCancel/passengerCancel";
+import Services from "./components/services/services";
 
 // import SearchBus from "./pages/searchBus/searchBus";
 function App() {
@@ -27,13 +30,17 @@ function App() {
         <Route path="/signup" component={SignUp}></Route>
           <Route path="/signin" component={SignIn}></Route>
           <PrivateRoute path="/booking" component={Booking}></PrivateRoute>
+          {/* <PrivateRoute path="/payment" component={PaymentMethod}></PrivateRoute> */}
           <PrivateRoute path="/receipt" component={PassengerReceipt}></PrivateRoute>
           <PrivateRoute exact path="/" component={Home}></PrivateRoute> 
           <PrivateRoute path="/about" component={About}></PrivateRoute>
-          <PrivateRoute path="/benefits" component={Benefits}></PrivateRoute>
+          <PrivateRoute path="/help" component={Benefits}></PrivateRoute>
           <PrivateRoute path="/contact" component={Contact}></PrivateRoute>
           <PrivateRoute path="/view" component={ViewTickets}></PrivateRoute>
           <PrivateRoute path="/viewTickets" component={Tickets}></PrivateRoute>
+          <PrivateRoute path="/cancel" component={Cancel}></PrivateRoute>
+          <PrivateRoute path="/services" component={Services}></PrivateRoute>
+          <PrivateRoute path="/passengerCancel" component={PassengerCancel}></PrivateRoute>
           <Footer/>         
         </Router>
       </div>

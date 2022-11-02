@@ -10,6 +10,10 @@ import bookingReducer from "./booking/bookingReducer";
 import busReducer from "./searchBus/searchBusReducer";
 import SignupReducer from "./signUp/signUpReducer";
 import ticketReducer from "./tickets/ticketReducer";
+import cancelReducer from "./Delete/deleteReducer";
+import ticketCancelReducer from "./ticketCancel/ticketCancelReducer";
+import customerHelpReducer from "./customerHelp/helpReducer";
+
 
 const rootReducer= combineReducers({
     about:aboutReducer,
@@ -22,6 +26,10 @@ const rootReducer= combineReducers({
     booking:bookingReducer,
     bus:busReducer,
     signup:SignupReducer,
-    ticket:ticketReducer
+    ticket:ticketReducer,
+    ticketCancel:ticketCancelReducer,
+    cancel:cancelReducer ,
+    help:customerHelpReducer      
+
 })
 export default rootReducer

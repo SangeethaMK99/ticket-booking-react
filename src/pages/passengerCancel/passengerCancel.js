@@ -1,4 +1,4 @@
-import './viewTickets.css'
+
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector} from 'react-redux'
 import { makeStyles } from "@material-ui/core/styles";
@@ -16,8 +16,6 @@ import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 import TablePagination from '@material-ui/core/TablePagination';
 import { fetchCancel } from '../../Redux/Delete/deleteAction';
-import 'react-toastify/dist/ReactToastify.css';
-import {  toast, ToastContainer } from 'react-toastify';
 
 
 const themes = createTheme({
@@ -31,43 +29,26 @@ const themes = createTheme({
 
 const useStyles = makeStyles({
   table: {
-    width:900,
+    width:700,
     margin:"auto",
     marginTop:50
     
   },
   btn:{
     margin:10,
-    fontSize:10,
-    color:'black'
+    fontSize:10
   }
 });
 
-function ViewTickets() {
+function PassengerCancel() {
   useEffect(() => {
     dispatch(fetchTicket());
    
   },[]);
-  
-  const handleDelete = (date,destination,id) => {
-    console.log(date);
-    console.log(destination);
-    console.log(id);
-    
-    const currentDate= new Date()
-    const givenDate=new Date(date)  
-    if (givenDate>currentDate){
-      dispatch(fetchCancel(date,destination,id))      
-    }
-    else{
-      toast.error("Date exceeded", {position: toast.POSITION.TOP_RIGHT,autoClose: 3000,
-      })
-
-    }
-}
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  const id=JSON.parse(localStorage.getItem('bookingId'))
+  const currentDate= new Date()
+  const givenDate=new Date(date)
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -77,15 +58,25 @@ function ViewTickets() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+  const handleDelete = (date,destination,id) => {
+    if (givenDate>currentDate){
+
+          dispatch(fetchCancel(date,destination,id))      
+    }
+  }
+  
+  const id=JSON.parse(localStorage.getItem('bookingId'))
 
 
   const classes = useStyles()
   const dispatch=useDispatch()
   const ticketData=useSelector((state=>state.ticket.ticket) )
   console.log("ticketdata",ticketData);
+  const date=ticketData.data?.map((ele)=>ele.date)
+  console.log("date",date);
   return (
   <div>
-    <div className='view'><h2>View Your Tickets</h2></div>
+    <div className='view'><h2>Cancel your tickets</h2></div>
   <div className='add'>
     <TableContainer >
     <ThemeProvider theme={themes}>
@@ -93,11 +84,11 @@ function ViewTickets() {
       <Table aria-label="simple table" className={classes.table} style={{backgroundColor:'pink', color: 'black',}}>
       <TableHead>
           <TableRow>
+            <TableCell>id</TableCell>
             <TableCell>name</TableCell>
             <TableCell>date</TableCell>
             <TableCell>Time</TableCell>
             <TableCell>Destination</TableCell>
-            <TableCell>View Tickets</TableCell>
             <TableCell>Cancel Tickets</TableCell>
             </TableRow>
         </TableHead>
@@ -105,6 +96,8 @@ function ViewTickets() {
         {ticketData.data?.
               slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (            
               <TableRow>
+                <TableCell>{id}</TableCell>
+
               <TableCell>{row.name}</TableCell>
               <TableCell>{moment(row.date).format('YYYY-MM-DD')}</TableCell>
               {/* <TableCell>{new Date(row.date).getFullYear()}-{new Date(row.date).getMonth()+1}-{new Date(row.date).getDate()}</TableCell> */}
@@ -112,13 +105,8 @@ function ViewTickets() {
               {/* <TableCell>{moment(row.time).format("HH:M")}</TableCell> */}
               <TableCell>{row.stop_point}</TableCell>
               <TableCell>
-              <Button className={classes.btn} variant='contained' color='secondary' type="submit"><Link   to={{pathname:"/viewTickets",row:{row:row}}} style={{textDecoration:"none", color:"black"}}>View Ticket</Link></Button><br/><br/>
-
+              <Button className={classes.btn} variant='contained' color='secondary' type="submit" style={{textDecoration:"none", color:"black"}} onClick={()=>{handleDelete(row.stop_point,id)}}>Cancel Ticket</Button><br/><br/>
               </TableCell>
-              <TableCell>              
-                {/* <Button className={classes.btn} variant='contained' color='secondary' type="submit" onClick={()=>{handleDelete(row.date,row.stop_point,id)}}> Cancel Ticket</Button><br/><br/> */}
-                <Button className={classes.btn} variant='contained' color='secondary' type="submit" onClick={()=>{handleDelete(row.date,row.stop_point,id)}}> Cancel Ticket</Button><br/><br/>
-          </TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -136,18 +124,13 @@ function ViewTickets() {
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
       </div>
-<ToastContainer/>
+
     </div>
   );
 }
 
 
-export default ViewTickets
-
-
-
-
-
+export default PassengerCancel
 
 
 

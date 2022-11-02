@@ -25,7 +25,7 @@ export const fetchTicket=()=>{
         const bookPassengerId=JSON.parse(localStorage.getItem('bookingId'))
 
         axios.get('http://localhost:8000/user/viewTickets',{params:{ bookPassengerId: bookPassengerId}})
-        .then(response =>{
+        .then(response =>{ 
             const ticket=response.data
             console.log("tickettsss",ticket);
             console.log("ticket details",response.data);

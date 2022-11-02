@@ -14,11 +14,10 @@ const themes = createTheme({
     },
   });
   
-
 function Services() {
     return(
         <div className="services">
-            <Box sx={{ maxWidth:400, backgroundColor:'pink', marginLeft:500}}>
+            <Box sx={{ maxWidth:400, marginLeft:500}}>
             <ThemeProvider theme={themes}>
         <Typography variant="h6">       
             <p>Easy booking and changes of travel</p>
