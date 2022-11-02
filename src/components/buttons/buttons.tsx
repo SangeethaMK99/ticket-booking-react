@@ -13,8 +13,9 @@ function Buttons(props:buttonProps){
             <Button id="btn1" variant='contained' color='secondary' onClick={()=>props.setButtons('form')} >BOOK TICKETS</Button>
             {/* <Button id="btn2" variant='contained' color='secondary'  onClick={()=>props.setButtons('viewTickets')}>VIEW TICKETS</Button> */}
             <Button id="btn2" variant='contained' color='secondary' ><Link to="/view" style={{textDecoration:"none", color:"white"}}>VIEW TICKETS</Link></Button>
-            <Button id="btn3" variant='contained' color='secondary' onClick={()=>props.setButtons('services')}>OUR SERVICES</Button>
+            <Button id="btn3" variant='contained' color='secondary'><Link to="/services" style={{textDecoration:"none", color:"white"}}>Services</Link></Button>
             </div>
+            
         </div>
     )
 }

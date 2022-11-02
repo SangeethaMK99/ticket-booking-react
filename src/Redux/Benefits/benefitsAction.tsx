@@ -25,7 +25,7 @@ const fetchBenefitsFailure = (error:benefits) =>{
 export const fetchBenefits =()=>{
     return(dispatch:any)=>{
         dispatch(fetchBenefitsRequest)
-        axios.get('http://localhost:3800/benefits')
+        axios.get('http://localhost:3800/help')
         .then(response =>{
             const benefits=response.data
             dispatch(fetchBenefitsSuccess(benefits))

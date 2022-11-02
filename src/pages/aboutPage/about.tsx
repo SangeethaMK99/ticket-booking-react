@@ -19,11 +19,13 @@ function About({aboutData,fetchAbout}:aboutProps) {
       },[])
     return(
         <div>
-            {/* <Header/> */}
             <div className="about">
+                <div className="img">
+                <img src="https://st.depositphotos.com/1038076/4870/i/450/depositphotos_48701865-stock-photo-about-us.jpg" alt="err" width="600" height="500"></img>
+                </div>
                 {aboutData.map((post:any)=>{
                     return( 
-                        <div>
+                        <div className="aboutData">
                             <h2>{post.heading}</h2>
                             <p>{post.paragraph}</p>
                         </div>
@@ -47,10 +49,6 @@ const mapDispatchToProps=(dispatch:any)=>{
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(About)
-
-
-
-
 
 
 

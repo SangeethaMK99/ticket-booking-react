@@ -1,9 +1,10 @@
 .imageSlider img{
-    
+    padding-top: 0;
     width:100%;
     height:500px;
 }
 .imageSlider{
+    /* background-color: aquamarine; */
     /* width:900px; */
     /* padding-left:200px; */
     padding:0 90px;
@@ -13,4 +14,7 @@
     padding:10px 15px;
     margin-left:5px;
     
+}
+.btn{
+    border:none;
 }

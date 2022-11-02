@@ -67,6 +67,10 @@ function PassengerReceipt() {
                     <td>fare amount:</td>
                     <td>{fare}/-</td>
                 </tr>
+                <tr> 
+                    <td>Payment method:</td>
+                    <td>{p.payment}</td>
+                </tr>
             </table>
                 ))}
         </div><br/>

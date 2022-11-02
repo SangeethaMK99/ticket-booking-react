@@ -2,18 +2,16 @@ import { useEffect, useState } from "react";
 import "./imageSlider.css";
 import { fetchSlider } from "../../Redux/imageSlider/sliderAction";
 import { connect } from "react-redux";
+import ArrowBackIosNewIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
-interface slider{
-  images:string[] | any
-  fetchSlider:() =>void; 
-}
-function Images({images, fetchSlider}:slider) {
+function Images({images, fetchSlider}) {
   useEffect(() => {
     fetchSlider();
    
   },[]);
   const im ="http://localhost:8000/upload/images/"
-  const imgs=images.img?.map((ele:any)=>im + ele.name)
+  const imgs=images.img?.map((ele)=>im + ele.name)
   console.log(imgs);
   
 
@@ -39,20 +37,20 @@ function Images({images, fetchSlider}:slider) {
       {/* <img src={images[index]} alt="error" /> */}
       {/* console.log(images); */}
       {images.img && <img src={imgs[index]} alt="err"/>}
-      <button onClick={prevImages}>Prev</button>
-      <button onClick={nextImages}>Next</button>
+      <button className="btn" onClick={prevImages}><ArrowBackIosNewIcon/> </button>
+      <button className="btn" onClick={nextImages}><ArrowForwardIosIcon/></button>
       <br/>
       <br/>
     </div>
   );
 }
-const mapStateToProps = (state:any) => {
+const mapStateToProps = (state) => {
   return {
     images: state.images.slider,
     
   };
 };
-const mapDispatchToProps = (dispatch:any) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     fetchSlider: () => {
       dispatch(fetchSlider());

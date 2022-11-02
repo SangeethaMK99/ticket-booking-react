@@ -1,11 +1,21 @@
 .formSubmit{
     text-align: center;
     border: 1px solid rgb(153, 51, 114);
-    margin: 0 150px;
+    margin: 0 120px;
 }
 .form-btn {
     margin-top: 20px;
 }
 .addHead{
     text-align: center;
+}
+.all{
+    background-color: rgb(171, 191, 230);
+}
+.main {
+    background-color: rgb(143, 176, 236);
+    padding: 10px 23px;
+}
+.main p{
+    font-size: 18px;
 }
