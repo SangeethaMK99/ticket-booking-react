@@ -7,7 +7,7 @@ import {useDispatch } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 import {  toast, ToastContainer } from 'react-toastify';
 import TextField from '@material-ui/core/TextField';
-import { fetchHelp } from '../../Redux/customerHelp/helpAction';
+import { fetchHelp } from '../action/action';
 const useStyles = makeStyles(theme => ({
   dialogWrapper: {
       padding: theme.spacing(5),

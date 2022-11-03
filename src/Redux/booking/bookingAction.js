@@ -20,37 +20,3 @@ export const fetchBookingFailure = (error) =>{
     }
 }
 
-export const fetchBooking =(name,email,phone,startPoint,stopPoint,busName,busDate,busTime,fare,payment)=>{
-    return(dispatch)=>{
-        dispatch(fetchBookingRequest)
-        axios.post("http://localhost:8000/user/passenger",{name:name,
-        email:email,
-        phone:phone,
-        startPoint:startPoint,
-        stopPoint:stopPoint ,
-        busName:busName,
-        busDate:busDate,
-        busTime:busTime,
-        fare:fare,
-        payment:payment
-        },
-        ).then((res)=>
-        {
-         console.log("passenger id",res.data);
-        const booking=res.data
-        console.log("booking details.....",booking);
-        const bookid=booking.data?.map((ele)=> ele.id)
-        console.log(bookid);
-        const bookingId=bookid[0]
-        localStorage.setItem('bookingId',JSON.stringify(bookingId))
-        dispatch(fetchBookingSuccess(booking))
-
-        
-        })
-        .catch(error =>{
-            const errorMsg=error.Message
-            dispatch(fetchBookingFailure(errorMsg))
-
-        })
-    }
-}

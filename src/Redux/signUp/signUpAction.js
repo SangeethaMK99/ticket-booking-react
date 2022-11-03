@@ -19,23 +19,3 @@ export const fetchSignupFailure = (error) =>{
         payload:error
     }
 }
-export const fetchSignup=(userName,email,password)=>{
-    return(dispatch)=>{
-        dispatch(fetchSignupRequest)
-        axios.post("http://localhost:8000/user/signup",{username:userName,
-        email:email,
-        password:password
-    }).then((res)=>
-        {
-         console.log(res);
-         const signup=res.data.data
-         console.log("signupdata",signup);
-
-            dispatch(fetchSignupSuccess(signup))
-        })
-        .catch(error =>{
-            const errorMsg=error.Message
-            dispatch(fetchSignupFailure(errorMsg))
-        })
-    }
-}

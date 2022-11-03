@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import { fetchBus } from '../../Redux/searchBus/searchBusAction';
+// import { fetchBus } from '../../Redux/searchBus/searchBusAction';
 import "./form.css"
 import DatePicker from "react-datepicker";
 import DirectionsBusIcon from '@material-ui/icons/DirectionsBus';
@@ -19,6 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {  toast, ToastContainer } from 'react-toastify';
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
+import { fetchBus } from '../action/action';
 
 const themes = createTheme({
   typography: {
@@ -125,7 +126,6 @@ console.log("starttt",starting_point);
           <MenuItem value="kannur" >kannur</MenuItem>
         </Select>
         </FormControl><br/>
-
         <label>
           Date: <DatePicker dateFormat="yyyy-MM-dd" minDate={new Date()}
          selected={date} onChange={(date) => setDate(date)} />
@@ -164,184 +164,6 @@ console.log("starttt",starting_point);
     );    
 }
 export default FormSubmit;
-
-
-
-
-
-
-
-// <LocalizationProvider dateAdapter={AdapterDayjs}>
-// <Stack spacing={3}>
-//   <DesktopDatePicker
-//     label="Date desktop"
-//     inputFormat="MM/DD/YYYY"
-//     value={value}
-//     onChange={handleChange}
-//     renderInput={(params) => <TextField {...params} />}
-//   />
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // <Box sx={{ maxWidth: 100 }}>
-    //   <FormControl fullWidth>
-    //     <InputLabel>Age</InputLabel>
-    //     <Select
-    //       value={starting_point} onChange={(e) =>setStartingPoint(e.target.value)}
-    //     >
-    //       <MenuItem >calicut</MenuItem>
-    //       <MenuItem >kasargod</MenuItem>
-    //       <MenuItem >wayanad</MenuItem>
-    //       <MenuItem >kochi</MenuItem>
-    //       <MenuItem >kannur</MenuItem>
-    //     </Select>
-    //   </FormControl>
-    // </Box>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { Button } from '@material-ui/core';
-// import axios from 'axios';
-// import { useState } from 'react'
-// import { useDispatch } from 'react-redux';
-// import { Link } from 'react-router-dom';
-// import { fetchBus } from '../../Redux/searchBus/searchBusAction';
-// import "./form.css"
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
-// import moment from "moment";
-
-
-
-
-
-// function FormSubmit() {
-//   const[date,setDate]=useState("");
-//   const[starting_point,setStartingPoint]=useState("");
-//   const[destination,setDestination]=useState("");
-//   const[searchBus,setSearchBus]=useState("")
-//   const[show,setShow]=useState(false);
-//   const dispatch=useDispatch()
-//   const handleSubmit=(e) => {
-//     e.preventDefault();
-//       dispatch(fetchBus(starting_point,destination,formatSearchDate,setShow,setSearchBus))
-//   }
-
-
-// console.log(searchBus);
-// // console.log("destination"+destination);
-// console.log("startingpoint"+starting_point);
-// console.log("date"+date);
-// const dateData=searchBus && searchBus.map((ele)=> ele.date)
-// console.log(dateData[0]);
-
-// const newdata=new Date(dateData[0])
-// const formatDate = moment(newdata).format('YYYY-MM-DD')
-
-// // console.log(newdata);
-
-// const stopData=searchBus && searchBus.map((ele)=> ele.stop_points)
-// console.log(stopData);
-// console.log(date);
-// const searchDate=new Date(date)
-// const formatSearchDate= moment(searchDate).format('YYYY-MM-DD')
-// console.log(formatSearchDate);
-
-
-//   return(
-//     <div className="form">
-//       <form >
-//         <label>
-//           starting_point:
-//           <select value={starting_point} onChange={(e) =>setStartingPoint(e.target.value)}>
-//             <option value="calicut">calicut</option>
-//             <option value="kasargod">kasargod</option>
-//             <option value="kochi">kochi</option>
-//             <option value="wayanad">wayanad</option>
-//             <option value="malappuram">malappuram</option>
-//             <option value="kannur">kannur</option>
-//           </select>
-//         </label><br/>
-//         <label>
-//           destination:
-//           <select value={destination} onChange={(e) =>setDestination(e.target.value)}>
-//             <option value="calicut">calicut</option>
-//             <option value="kasargod">kasargod</option>
-//             <option value="kochi">kochi</option>
-//             <option value="wayanad">wayanad</option>
-//             <option value="malappuram">malappuram</option>
-//             <option value="kannur">kannur</option>
-//           </select>
-//           </label><br/>
-//         <label>
-//           Date: <DatePicker dateFormat="yyyy-MM-dd" selected={date} onChange={(date) => setDate(date)} />
-          
-//         </label>
-//         <Button  className='form-btn' type="submit" variant='contained' color='secondary' style={{marginLeft:'30'}} onClick={(e)=>handleSubmit(e)}>search Buses</Button>
-//         </form><br/>
-//         {show &&  searchBus.map((post)=>{
-//                     return( 
-//                           <div className='busData'>
-//                             <h2>{post.name}</h2>
-//                             <p>Starting Point : {post.starting_point}</p>
-//                             <p>Destination : {post.destination}</p>
-//                             <p>Stop points : {post.stop_points}</p>
-//                             <p>Total seats : {post.total_seats}</p>
-//                             <p>Available seats : {post.available_seats}</p>
-//                             <p>Date :{formatDate}</p>
-//                             <Button className='btn' variant='contained' color='secondary'><Link  to={{pathname:"/booking", state:{stopData:stopData},bus:{searchBus:searchBus},date:{formatDate:formatDate}}} style={{textDecoration:"none", color:"black"}}>Book</Link></Button><br/><br/>
-//                         </div>
-//                     )}
-//                 )}
-//     </div>    
-//     );    
-// }
-// export default FormSubmit;
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

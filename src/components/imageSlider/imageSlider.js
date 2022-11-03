@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./imageSlider.css";
-import { fetchSlider } from "../../Redux/imageSlider/sliderAction";
+import { fetchSlider } from "../action/action";
 import { connect } from "react-redux";
 import ArrowBackIosNewIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
