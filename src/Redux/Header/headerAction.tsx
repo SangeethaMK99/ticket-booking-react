@@ -9,14 +9,14 @@ export const fetchHeaderRequest = () =>{
         type: FETCH_HEADER_REQUEST
     }
 }
-const fetchHeaderSuccess=(header:header)=>{
+export const fetchHeaderSuccess=(header:header)=>{
     return{
         type: FETCH_HEADER_SUCCESS,
         payload:header
     }
 }
 
-const fetchHeaderFailure = (error:header)=>{
+export const fetchHeaderFailure = (error:header)=>{
     return{
         type: FETCH_HEADER_FAILURE,
         payload:error
@@ -34,8 +34,8 @@ export const fetchHeader =()=>{
         .catch(error =>{
             const errorMsg=error.Message
             dispatch(fetchHeaderFailure(errorMsg))
-
-
+  
+  
         })
     }
-}
+  }

@@ -11,11 +11,10 @@ import TableRow from "@material-ui/core/TableRow";
 import moment from "moment";
 import { Button} from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import { fetchTicket } from '../../Redux/tickets/ticketAction';
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 import TablePagination from '@material-ui/core/TablePagination';
-import { fetchCancel } from '../../Redux/Delete/deleteAction';
+import { fetchCancel, fetchTicket } from '../../components/action/action';
 
 
 const themes = createTheme({

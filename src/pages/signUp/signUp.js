@@ -1,10 +1,11 @@
 import './signUp.css'
 import { useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSignup } from '../../Redux/signUp/signUpAction';
+// import { fetchSignup } from '../../Redux/signUp/signUpAction';
 import 'react-toastify/dist/ReactToastify.css';
 import {  toast, ToastContainer } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
+import { fetchSignup } from '../../components/action/action';
 
 
 const SignUp = (props) => {

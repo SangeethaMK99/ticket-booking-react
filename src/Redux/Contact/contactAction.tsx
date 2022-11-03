@@ -10,13 +10,13 @@ interface contact{
         type: FETCH_CONTACT_REQUEST
     }
 }
-const fetchContactSuccess= (contact:contact) =>{
+export const fetchContactSuccess= (contact:contact) =>{
     return{
         type: FETCH_CONTACT_SUCCESS,
         payload:contact
     }
 }
-const fetchContactFailure = (error:contact) =>{
+export const fetchContactFailure = (error:contact) =>{
     return{
         type: FETCH_CONTACT_FAILURE,
         payload:error
@@ -35,4 +35,5 @@ export const fetchContact =()=>{
             dispatch(fetchContactFailure(errorMsg))
         })
     }
-}
+  }
+  

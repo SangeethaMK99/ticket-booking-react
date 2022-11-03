@@ -11,13 +11,12 @@ import TableRow from "@material-ui/core/TableRow";
 import moment from "moment";
 import { Button} from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import { fetchTicket } from '../../Redux/tickets/ticketAction';
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 import TablePagination from '@material-ui/core/TablePagination';
-import { fetchCancel } from '../../Redux/Delete/deleteAction';
 import 'react-toastify/dist/ReactToastify.css';
 import {  toast, ToastContainer } from 'react-toastify';
+import { fetchCancel, fetchTicket } from '../../components/action/action';
 
 
 const themes = createTheme({
@@ -40,6 +39,9 @@ const useStyles = makeStyles({
     margin:10,
     fontSize:10,
     color:'black'
+  },
+  pagination:{
+    marginRight:200
   }
 });
 
@@ -57,7 +59,10 @@ function ViewTickets() {
     const currentDate= new Date()
     const givenDate=new Date(date)  
     if (givenDate>currentDate){
-      dispatch(fetchCancel(date,destination,id))      
+      dispatch(fetchCancel(date,destination,id)) 
+      toast.success("ticket is cancelled successfully", {position: toast.POSITION.TOP_RIGHT,autoClose: 3000,
+      })
+     
     }
     else{
       toast.error("Date exceeded", {position: toast.POSITION.TOP_RIGHT,autoClose: 3000,
@@ -126,7 +131,7 @@ function ViewTickets() {
       </Typography>
       </ThemeProvider>
     </TableContainer>
-    <TablePagination
+    <TablePagination className={classes.pagination}
         rowsPerPageOptions={[5, 10, 100]}
         component="div"
         count={ticketData.data?.length}

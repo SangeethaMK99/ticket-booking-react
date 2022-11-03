@@ -4,7 +4,6 @@ import { useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import DirectionsBusIcon from '@material-ui/icons/DirectionsBus';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import { fetchBooking } from '../../Redux/booking/bookingAction';
 import Box from '@material-ui/core/Box';
 import moment from "moment";
 import TextField from '@material-ui/core/TextField';
@@ -16,6 +15,7 @@ import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 import './booking.css'
 import PaymentPopUp from '../../components/popup/paymentPopUp/paymentPopUp';
+import { fetchBooking } from '../../components/action/action';
 
 const themes = createTheme({
   typography: {

@@ -9,13 +9,13 @@ interface about{
         type: FETCH_ABOUT_REQUEST
     }
 }
-const fetchAboutSuccess= (about:about) =>{
+export const fetchAboutSuccess= (about:about) =>{
     return{
         type: FETCH_ABOUT_SUCCESS,
         payload:about
     }
 }
-const fetchAboutFailure = (error:about) =>{
+export const fetchAboutFailure = (error:about) =>{
     return{
         type: FETCH_ABOUT_FAILURE,
         payload:error
@@ -32,8 +32,9 @@ export const fetchAbout =()=>{
         .catch(error =>{
             const errorMsg=error.Message
             dispatch(fetchAboutFailure(errorMsg))
-
-
+  
+  
         })
     }
-}
+  }
+  

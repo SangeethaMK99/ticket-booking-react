@@ -1,10 +1,7 @@
-import Footer from "../../components/footer/footer";
-import Header from "../../components/header/header";
 import './benefits.css'
 import {useEffect, useState} from 'react'
 import{connect} from 'react-redux'
 import { fetchBenefits } from "../../Redux/Benefits/benefitsAction";
-import { benefitsObj } from "../../Redux/types";
 import { Button } from "@material-ui/core";
 import PopUp from "../../components/popup/popUp";
 

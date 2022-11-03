@@ -9,19 +9,18 @@ interface benefits{
         type: FETCH_BENEFITS_REQUEST
     }
 }
-const fetchBenefitsSuccess= (benefits:benefits) =>{
+export const fetchBenefitsSuccess= (benefits:benefits) =>{
     return{
         type: FETCH_BENEFITS_SUCCESS,
         payload:benefits
     }
 }
-const fetchBenefitsFailure = (error:benefits) =>{
+export const fetchBenefitsFailure = (error:benefits) =>{
     return{
         type: FETCH_BENEFITS_FAILURE,
         payload:error
     }
 }
-
 export const fetchBenefits =()=>{
     return(dispatch:any)=>{
         dispatch(fetchBenefitsRequest)
@@ -35,4 +34,6 @@ export const fetchBenefits =()=>{
             dispatch(fetchBenefitsFailure(errorMsg))
         })
     }
-}
+  }
+
+
